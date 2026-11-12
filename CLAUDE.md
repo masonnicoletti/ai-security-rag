@@ -9,6 +9,29 @@ corpus (AI-security tactics, techniques, mitigations, case studies, entities, so
 ingest → chunk → embed → index → retrieve → generate → evaluate. Status: retrieval milestone done
 (ingest through CLI search, tests, benchmark); generation and evaluation are next. See README.md.
 
+## Collaboration workflow (required for all work in this repo)
+
+This is a team project. Follow [docs/COLLABORATION.md](docs/COLLABORATION.md) and read it before
+starting a task. In practice:
+
+- Never commit or push to `main`. Work on the user's branch (`<name>-dev` or `<name>/<topic>`),
+  created from the latest `main`. Changes reach `main` only through a pull request that another
+  teammate reviews. Commit or push only when the user asks.
+- Before saying a change is done, run `python -m rag.build` (from a clean `data/` if ingest,
+  chunking or embedding changed) and `python -m pytest -q`, and report the actual output.
+- Keep PRs small. When asked to draft a PR description, use the plan's structure: what and why,
+  how it was checked, numbers that moved, and AI assistance used.
+- Respect the shared-data rules: additive schema changes only; a new `CHUNK_CONFIG` name instead
+  of changing a used one; the corpus stays pinned; no generated data in git; every reported number
+  comes from a committed script, with its output under `docs/`.
+- Never write, edit or suggest content for evaluation questions (`eval/questions_*.yaml`).
+  Building the loader and evaluation harness is fine. Never tune on partner questions
+  (`q_type: partner`).
+- If the code area being changed has an owner in the plan's table, mention in the PR that the
+  owner should review it.
+- If a request conflicts with the plan, say so and suggest updating `docs/COLLABORATION.md`
+  through a PR rather than quietly working around it.
+
 ## Commands
 
 Use the project venv (`.venv/`, Python 3.13, pinned in `requirements.txt`).

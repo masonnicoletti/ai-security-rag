@@ -9,6 +9,9 @@ documents it drew from.
 **Status: retrieval milestone.** Ingest → chunk → embed → index → top-k retrieval from the command line
 are done. Generation and evaluation are next.
 
+**Contributing:** read [docs/COLLABORATION.md](docs/COLLABORATION.md) first. It covers branches,
+PR review, data rules and evaluation-question ownership.
+
 ## Quick start
 
 ```bash
