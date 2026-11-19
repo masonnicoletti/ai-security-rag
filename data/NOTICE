@@ -1,0 +1,15 @@
+This project uses data from MITRE ATLAS (Adversarial Threat Landscape for
+Artificial-Intelligence Systems), https://atlas.mitre.org/
+
+Source: https://github.com/mitre-atlas/atlas-data
+        commit f56c1468731d6428e5bf875263b4643b46d67437, file dist/v6/ATLAS-2026.10.yaml
+Copyright 2021-2026 MITRE. Licensed under the Apache License, Version 2.0;
+see ATLAS-LICENSE in this directory.
+
+Modifications: the raw YAML is not redistributed unmodified by this repo. Our
+ingestion (rag/ingest.py) and chunking (rag/chunk.py) derive a SQLite database
+from it: markdown link syntax and citation markers are removed from
+descriptions, relationship text is split into separate retrievable chunks, and
+each chunk is prefixed with its object's title, ATLAS id and type. Any copy of
+data/atlas.db shared with others is a Derivative Work and must be accompanied
+by ATLAS-LICENSE and this NOTICE.
